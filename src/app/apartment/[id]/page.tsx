@@ -80,7 +80,7 @@ export default function ApartmentDetails() {
               Details
             </h2>
             <ul className="text-gray-600">
-              <li>Price: ${apartment.price}/month</li>
+              <li>Price: ${apartment.price}</li>
               <li>Rooms: {apartment.rooms}</li>
               <li>Size: {apartment.size} m²</li>
             </ul>
