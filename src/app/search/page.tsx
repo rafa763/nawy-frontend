@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +15,11 @@ interface Property {
   imageUrl: string;
 }
 
-export default function SearchPage() {
+const Loading = () => (
+  <div className="text-center text-gray-500">Loading...</div>
+);
+
+function SearchPageContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
   const [properties, setProperties] = useState<Property[]>([]);
@@ -46,7 +50,7 @@ export default function SearchPage() {
     <div>
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Search Results</h1>
       {loading ? (
-        <div className="text-center text-gray-500">Loading...</div>
+        <Loading />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((property) => (
@@ -79,5 +83,13 @@ export default function SearchPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <SearchPageContent />
+    </Suspense>
   );
 }
