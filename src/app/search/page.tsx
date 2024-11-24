@@ -30,7 +30,7 @@ function SearchPageContent() {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://54.234.49.50:8080/api/v1/property/search?query=${query}`
+          `https://backend.serverx.tech/api/v1/property/search?query=${query}`
         );
         const data = await response.json();
         setProperties(data);

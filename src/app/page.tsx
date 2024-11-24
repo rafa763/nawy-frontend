@@ -26,7 +26,7 @@ export default function Home() {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://54.234.49.50:8080/api/v1/property?page=${currentPage}&size=${pageSize}`
+          `https://backend.serverx.tech/api/v1/property?page=${currentPage}&size=${pageSize}`
         );
         const data = await response.json();
         setApartments(data.data);

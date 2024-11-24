@@ -64,10 +64,13 @@ export default function AddApartment() {
         formDataToSend.append("image", imageFile);
       }
 
-      const response = await fetch("http://54.234.49.50:8080/api/v1/property", {
-        method: "POST",
-        body: formDataToSend,
-      });
+      const response = await fetch(
+        "https://backend.serverx.tech/api/v1/property",
+        {
+          method: "POST",
+          body: formDataToSend,
+        }
+      );
 
       const data = await response.json();
 

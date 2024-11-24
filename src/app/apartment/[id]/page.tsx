@@ -35,7 +35,7 @@ export default function ApartmentDetails() {
     async function fetchApartmentDetails() {
       try {
         const response = await fetch(
-          `http://54.234.49.50:8080/api/v1/property/${id}`
+          `https://backend.serverx.tech/api/v1/property/${id}`
         );
         const data = await response.json();
         setApartment(data);
