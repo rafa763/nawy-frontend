@@ -64,7 +64,7 @@ export default function AddApartment() {
         formDataToSend.append("image", imageFile);
       }
 
-      const response = await fetch("http://localhost:8080/api/v1/property", {
+      const response = await fetch("http://54.234.49.50:8080/api/v1/property", {
         method: "POST",
         body: formDataToSend,
       });

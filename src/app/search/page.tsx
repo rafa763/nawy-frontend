@@ -26,7 +26,7 @@ export default function SearchPage() {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8080/api/v1/property/search?query=${query}`
+          `http://54.234.49.50:8080/api/v1/property/search?query=${query}`
         );
         const data = await response.json();
         setProperties(data);
